@@ -22,4 +22,4 @@ public class ArmorCopperHelmet extends ArmorItem {
     `models\item`  
 `item`に装備の画像を保存  
     `copper_layer_1.png`、`copper_layer_2.png`  
-ランチャーを起動してクリエイティブモードタブが登録されているか確認 
+ランチャーを起動して確認 
