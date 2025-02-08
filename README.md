@@ -1,6 +1,6 @@
 # mods-code_1.20.x
 
-'book'[記述まとめ](https://runrungift.github.io/mods-code_1.20.x/book/)
+`book`[記述まとめ](https://runrungift.github.io/mods-code_1.20.x/book/)
 
 ### 環境
 > minecraft 1.20.x  
