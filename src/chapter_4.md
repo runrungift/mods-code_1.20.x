@@ -56,3 +56,36 @@ Itemをクリエイティブモードタブに追加
                     .icon(()->new ItemStack(CopperToolsItems.COPPER_NUGGET.get()))
 ```
 ランチャーを起動してクリエイティブモードタブが登録されているか確認
+
+Itemのテクスチャーを設定
+注意事項
+* 16の倍数の正方形(16px*16pxなど)
+* png形式(PNGファイル)
+* 余白がアルファチャンネルになっていること
+* ファイルの名前がitemIDと同じであること
+
+`resources/assets/coppertools/`にディレクトリを作成
+    `textures\item`
+`item`にアイテムの画像を保存
+`resources/assets/coppertools/`にディレクトリを作成
+    `models\item`
+`item`にファイルを作成
+    `copper_nugget.json`
+```json
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "coppertools:item/copper_nugget"
+  }
+}
+```
+
+Itemの名前を設定
+`ja_jp.json`を編集
+```json
+{
+  "itemGroup.coppertools_main" : "CopperTools",
+
+  "item.coppertools.copper_nugget" : "銅塊"
+}
+```

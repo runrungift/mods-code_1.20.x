@@ -328,6 +328,36 @@ public class CopperToolsItems {
 <pre><code class="language-java">                    .icon(()-&gt;new ItemStack(CopperToolsItems.COPPER_NUGGET.get()))
 </code></pre>
 <p>ランチャーを起動してクリエイティブモードタブが登録されているか確認</p>
+<p>Itemのテクスチャーを設定
+注意事項</p>
+<ul>
+<li>16の倍数の正方形(16px*16pxなど)</li>
+<li>png形式(PNGファイル)</li>
+<li>余白がアルファチャンネルになっていること</li>
+<li>ファイルの名前がitemIDと同じであること</li>
+</ul>
+<p><code>resources/assets/coppertools/</code>にディレクトリを作成
+<code>textures\item</code>
+<code>item</code>にアイテムの画像を保存
+<code>resources/assets/coppertools/</code>にディレクトリを作成
+<code>models\item</code>
+<code>item</code>にファイルを作成
+<code>copper_nugget.json</code></p>
+<pre><code class="language-json">{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "coppertools:item/copper_nugget"
+  }
+}
+</code></pre>
+<p>Itemの名前を設定
+<code>ja_jp.json</code>を編集</p>
+<pre><code class="language-json">{
+  "itemGroup.coppertools_main" : "CopperTools",
+
+  "item.coppertools.copper_nugget" : "銅塊"
+}
+</code></pre>
 
                     </main>
 
