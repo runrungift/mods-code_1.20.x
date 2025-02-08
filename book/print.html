@@ -413,6 +413,29 @@ public class ToolCopperPickaxe extends PickaxeItem {
 }
 </code></pre>
 <p>ランチャーを起動してクリエイティブモードタブが登録されているか確認</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="装備の追加"><a class="header" href="#装備の追加">装備の追加</a></h1>
+<p>パッケージの追加<code>com.Light.CopperTools.item.armor</code><br />
+<code>armor</code>にhelmetのクラスを作成
+<code>ArmorCopperHelmet</code></p>
+<pre><code class="language-java">package com.Light.CopperTools.item.armor;
+
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.ArmorMaterials;
+
+public class ArmorCopperHelmet extends ArmorItem {
+    public ArmorCopperHelmet() {
+        super(ArmorMaterials.IRON,Type.HELMET,new Properties().durability(200));
+    }
+}
+</code></pre>
+<p>チェストプレート、レギンス、ブーツも同じように設定する。<br />
+アイテムとして登録、クリエイティブモードタブにも登録。アイテムの画像、アイテム名も同じように設定。<br />
+<code>resources/assets/coppertools/textures</code>にディレクトリを作成<br />
+<code>models\item</code><br />
+<code>item</code>に装備の画像を保存<br />
+<code>copper_layer_1.png</code>、<code>copper_layer_2.png</code><br />
+ランチャーを起動してクリエイティブモードタブが登録されているか確認</p>
 
                     </main>
 
