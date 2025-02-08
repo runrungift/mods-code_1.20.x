@@ -1,7 +1,6 @@
 # mods-code_1.20.x
 
-### BOOK
-[BOOK](https://runrungift.github.io/mods-code_1.20.x/book/)
+<span style="color : aqua;">[記述まとめ](https://runrungift.github.io/mods-code_1.20.x/book/)</span>
 
 ### 環境
 > minecraft 1.20.x  
