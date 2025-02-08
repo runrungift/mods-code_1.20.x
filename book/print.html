@@ -214,7 +214,7 @@ description='''add cooper tools'''　#42
 [[dependencies.coppertools]] #58
 </code></pre>
 <p>ランチャーを起動して情報が登録されているか確認</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="クリエイティブタブの追加"><a class="header" href="#クリエイティブタブの追加">クリエイティブタブの追加</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="クリエイティブモードタブの追加"><a class="header" href="#クリエイティブモードタブの追加">クリエイティブモードタブの追加</a></h1>
 <p>パッケージの追加<code>com.Light.CopperTools.regi.tab</code>
 <code>tab</code>にタブのmainクラスを作成(tabの中身を管理をする)
 <code>CopperToolsMain</code></p>
@@ -269,13 +269,65 @@ public class CopperToolsTabs {
   "itemGroup.coppertools_main" : "CopperTools"
 }
 </code></pre>
-<p><code>CopperTools.java</code>にクリエイティブタブを登録</p>
+<p><code>CopperTools.java</code>にクリエイティブモードタブを登録</p>
 <pre><code class="language-java">    public CopperTools(){
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         CopperToolsTabs.MOD_TABS.register(bus);
     }
 </code></pre>
-<p>ランチャーを起動してクリエイティブタブが登録されているか確認</p>
+<p>ランチャーを起動してクリエイティブモードタブが登録されているか確認</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="itemの追加"><a class="header" href="#itemの追加">Itemの追加</a></h1>
+<p>パッケージの追加<code>com.Light.CopperTools.item</code>
+<code>item</code>にitemのクラスを作成
+<code>ItemCopperNugget</code></p>
+<pre><code class="language-java">package com.Light.CopperTools.item;
+
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
+
+public class ItemCopperNugget extends Item {
+    public ItemCopperNugget() {
+        super(new Properties()
+                .stacksTo(64)
+                .rarity(Rarity.COMMON)
+        );
+    }
+}
+</code></pre>
+<p><code>regi</code>にitemを登録するクラスを作成する
+<code>CopperToolsItems</code></p>
+<pre><code class="language-java">package com.Light.CopperTools.regi;
+
+import com.Light.CopperTools.item.ItemCopperNugget;
+import com.Light.CopperTools.main.CopperTools;
+import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+
+public class CopperToolsItems {
+    public static final DeferredRegister&lt;Item&gt; ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, CopperTools.MOD_ID);
+    public static final RegistryObject&lt;Item&gt; COPPER_NUGGET = ITEMS.register("copper_nugget", ItemCopperNugget::new);
+}
+</code></pre>
+<p><code>CopperTools.java</code>にItemを登録</p>
+<pre><code class="language-java">    public CopperTools(){
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        CopperToolsItems.ITEMS.register(bus);
+        CopperToolsTabs.MOD_TABS.register(bus);
+    }
+</code></pre>
+<p>Itemをクリエイティブモードタブに追加
+<code>CopperToolsMain.java</code></p>
+<pre><code class="language-java">    public static final Item[] items = {
+            CopperToolsItems.COPPER_NUGGET.get()
+    };
+</code></pre>
+<p>クリエイティブモードタブのアイコンを変更
+<code>CopperToolsTabs.java</code></p>
+<pre><code class="language-java">                    .icon(()-&gt;new ItemStack(CopperToolsItems.COPPER_NUGGET.get()))
+</code></pre>
+<p>ランチャーを起動してクリエイティブモードタブが登録されているか確認</p>
 
                     </main>
 
