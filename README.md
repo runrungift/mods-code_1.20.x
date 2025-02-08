@@ -1,6 +1,6 @@
 # mods-code_1.20.x
 
-[<span style="color : red;">記述まとめ</span>](https://runrungift.github.io/mods-code_1.20.x/book/)
+<span style="color : red;">[記述まとめ](https://runrungift.github.io/mods-code_1.20.x/book/)</span>
 
 ### 環境
 > minecraft 1.20.x  
