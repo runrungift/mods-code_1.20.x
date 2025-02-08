@@ -1,3 +1,3 @@
-# Summary
+# 目次
 
-- [Chapter 1](./chapter_1.md)
+- [はじめに](./chapter_1.md)
