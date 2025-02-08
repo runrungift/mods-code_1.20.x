@@ -181,12 +181,11 @@
 <li>確認後終了</li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="modの説明欄とファイルの基本設定"><a class="header" href="#modの説明欄とファイルの基本設定">MODの説明欄とファイルの基本設定</a></h1>
-<p><code>IJ</code></p>
-<p>プロジェクトの不要ファイルを全て削除
+<p>プロジェクトの不要ファイルを全て削除<br />
 <code>changelog.txt</code>、<code>CREDITS.txt</code>、<code>LiCENSE.txt</code>、<code>README.txt</code>、<code>src/main/java/com/example</code>(txtファイルとexampleフォルダを削除)
-<code>com</code>に新しいパッケージを作成
+<code>com</code>に新しいパッケージを作成<br />
 <code>com.Light.CopperTools.main</code>
-<code>main</code>にmainクラスを作成する
+<code>main</code>にmainクラスを作成する<br />
 <code>CopperTools</code></p>
 <pre><code class="language-java">package com.Light.CopperTools.main;
 
@@ -215,8 +214,8 @@ description='''add cooper tools'''　#42
 </code></pre>
 <p>ランチャーを起動して情報が登録されているか確認</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="クリエイティブモードタブの追加"><a class="header" href="#クリエイティブモードタブの追加">クリエイティブモードタブの追加</a></h1>
-<p>パッケージの追加<code>com.Light.CopperTools.regi.tab</code>
-<code>tab</code>にタブのmainクラスを作成(tabの中身を管理をする)
+<p>パッケージの追加<code>com.Light.CopperTools.regi.tab</code><br />
+<code>tab</code>にタブのmainクラスを作成(tabの中身を管理をする)<br />
 <code>CopperToolsMain</code></p>
 <pre><code class="language-java">package com.Light.CopperTools.regi.tab;
 
@@ -231,7 +230,7 @@ public class CopperToolsMain {
     };
 }
 </code></pre>
-<p><code>tab</code>にタブのmainクラスを作成(tabを登録する)
+<p><code>tab</code>にタブのmainクラスを作成(tabを登録する)<br />
 <code>CopperToolsTabs</code></p>
 <pre><code class="language-java">package com.Light.CopperTools.regi.tab;
 
@@ -261,9 +260,9 @@ public class CopperToolsTabs {
     });
 }
 </code></pre>
-<p><code>resources</code>にディレクトリを作成
+<p><code>resources</code>にディレクトリを作成<br />
 <code>assets/coppertools/lang</code>
-<code>lang</code>にファイルを作成
+<code>lang</code>にファイルを作成<br />
 <code>ja_jp.json</code></p>
 <pre><code class="language-json">{
   "itemGroup.coppertools_main" : "CopperTools"
@@ -277,7 +276,7 @@ public class CopperToolsTabs {
 </code></pre>
 <p>ランチャーを起動してクリエイティブモードタブが登録されているか確認</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="itemの追加"><a class="header" href="#itemの追加">Itemの追加</a></h1>
-<p>パッケージの追加<code>com.Light.CopperTools.item</code>
+<p>パッケージの追加<code>com.Light.CopperTools.item</code><br />
 <code>item</code>にitemのクラスを作成
 <code>ItemCopperNugget</code></p>
 <pre><code class="language-java">package com.Light.CopperTools.item;
@@ -294,7 +293,7 @@ public class ItemCopperNugget extends Item {
     }
 }
 </code></pre>
-<p><code>regi</code>にitemを登録するクラスを作成する
+<p><code>regi</code>にitemを登録するクラスを作成する<br />
 <code>CopperToolsItems</code></p>
 <pre><code class="language-java">package com.Light.CopperTools.regi;
 
@@ -317,18 +316,18 @@ public class CopperToolsItems {
         CopperToolsTabs.MOD_TABS.register(bus);
     }
 </code></pre>
-<p>Itemをクリエイティブモードタブに追加
+<p>Itemをクリエイティブモードタブに追加<br />
 <code>CopperToolsMain.java</code></p>
 <pre><code class="language-java">    public static final Item[] items = {
             CopperToolsItems.COPPER_NUGGET.get()
     };
 </code></pre>
-<p>クリエイティブモードタブのアイコンを変更
+<p>クリエイティブモードタブのアイコンを変更<br />
 <code>CopperToolsTabs.java</code></p>
 <pre><code class="language-java">                    .icon(()-&gt;new ItemStack(CopperToolsItems.COPPER_NUGGET.get()))
 </code></pre>
 <p>ランチャーを起動してクリエイティブモードタブが登録されているか確認</p>
-<p>Itemのテクスチャーを設定
+<p>Itemのテクスチャーを設定<br />
 注意事項</p>
 <ul>
 <li>16の倍数の正方形(16px*16pxなど)</li>
@@ -336,12 +335,12 @@ public class CopperToolsItems {
 <li>余白がアルファチャンネルになっていること</li>
 <li>ファイルの名前がitemIDと同じであること</li>
 </ul>
-<p><code>resources/assets/coppertools/</code>にディレクトリを作成
+<p><code>resources/assets/coppertools/</code>にディレクトリを作成<br />
 <code>textures\item</code>
-<code>item</code>にアイテムの画像を保存
-<code>resources/assets/coppertools/</code>にディレクトリを作成
+<code>item</code>にアイテムの画像を保存<br />
+<code>resources/assets/coppertools/</code>にディレクトリを作成<br />
 <code>models\item</code>
-<code>item</code>にファイルを作成
+<code>item</code>にファイルを作成<br />
 <code>copper_nugget.json</code></p>
 <pre><code class="language-json">{
   "parent": "minecraft:item/generated",
@@ -350,7 +349,7 @@ public class CopperToolsItems {
   }
 }
 </code></pre>
-<p>Itemの名前を設定
+<p>Itemの名前を設定<br />
 <code>ja_jp.json</code>を編集</p>
 <pre><code class="language-json">{
   "itemGroup.coppertools_main" : "CopperTools",

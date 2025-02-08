@@ -1,7 +1,7 @@
 # クリエイティブモードタブの追加
 
-パッケージの追加`com.Light.CopperTools.regi.tab`
-`tab`にタブのmainクラスを作成(tabの中身を管理をする)
+パッケージの追加`com.Light.CopperTools.regi.tab`  
+`tab`にタブのmainクラスを作成(tabの中身を管理をする)  
     `CopperToolsMain`
 ```java
 package com.Light.CopperTools.regi.tab;
@@ -18,7 +18,7 @@ public class CopperToolsMain {
 }
 ```
 
-`tab`にタブのmainクラスを作成(tabを登録する)
+`tab`にタブのmainクラスを作成(tabを登録する)  
     `CopperToolsTabs`
 ```java
 package com.Light.CopperTools.regi.tab;
@@ -49,16 +49,16 @@ public class CopperToolsTabs {
     });
 }
 ```
-`resources`にディレクトリを作成
+`resources`にディレクトリを作成  
     `assets/coppertools/lang`
-`lang`にファイルを作成
+`lang`にファイルを作成  
     `ja_jp.json`
 ```json
 {
   "itemGroup.coppertools_main" : "CopperTools"
 }
 ```
-`CopperTools.java`にクリエイティブモードタブを登録
+`CopperTools.java`にクリエイティブモードタブを登録  
 ```java
     public CopperTools(){
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();

@@ -1,12 +1,10 @@
 # MODの説明欄とファイルの基本設定
 
-`IJ`
-
-プロジェクトの不要ファイルを全て削除
+プロジェクトの不要ファイルを全て削除  
     `changelog.txt`、`CREDITS.txt`、`LiCENSE.txt`、`README.txt`、`src/main/java/com/example`(txtファイルとexampleフォルダを削除)
-`com`に新しいパッケージを作成
+`com`に新しいパッケージを作成  
     `com.Light.CopperTools.main`
-`main`にmainクラスを作成する
+`main`にmainクラスを作成する  
     `CopperTools`
 ```java
 package com.Light.CopperTools.main;

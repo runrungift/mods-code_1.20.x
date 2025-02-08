@@ -1,6 +1,6 @@
 # Itemの追加
 
-パッケージの追加`com.Light.CopperTools.item`
+パッケージの追加`com.Light.CopperTools.item`  
 `item`にitemのクラスを作成
     `ItemCopperNugget`
 ```java
@@ -18,7 +18,7 @@ public class ItemCopperNugget extends Item {
     }
 }
 ```
-`regi`にitemを登録するクラスを作成する
+`regi`にitemを登録するクラスを作成する  
     `CopperToolsItems`
 ```java
 package com.Light.CopperTools.regi;
@@ -43,33 +43,33 @@ public class CopperToolsItems {
         CopperToolsTabs.MOD_TABS.register(bus);
     }
 ```
-Itemをクリエイティブモードタブに追加
+Itemをクリエイティブモードタブに追加  
 `CopperToolsMain.java`
 ```java
     public static final Item[] items = {
             CopperToolsItems.COPPER_NUGGET.get()
     };
 ```
-クリエイティブモードタブのアイコンを変更
+クリエイティブモードタブのアイコンを変更  
 `CopperToolsTabs.java`
 ```java
                     .icon(()->new ItemStack(CopperToolsItems.COPPER_NUGGET.get()))
 ```
-ランチャーを起動してクリエイティブモードタブが登録されているか確認
+ランチャーを起動してクリエイティブモードタブが登録されているか確認  
 
-Itemのテクスチャーを設定
+Itemのテクスチャーを設定  
 注意事項
 * 16の倍数の正方形(16px*16pxなど)
 * png形式(PNGファイル)
 * 余白がアルファチャンネルになっていること
 * ファイルの名前がitemIDと同じであること
 
-`resources/assets/coppertools/`にディレクトリを作成
+`resources/assets/coppertools/`にディレクトリを作成  
     `textures\item`
-`item`にアイテムの画像を保存
-`resources/assets/coppertools/`にディレクトリを作成
+`item`にアイテムの画像を保存  
+`resources/assets/coppertools/`にディレクトリを作成  
     `models\item`
-`item`にファイルを作成
+`item`にファイルを作成  
     `copper_nugget.json`
 ```json
 {
@@ -80,7 +80,7 @@ Itemのテクスチャーを設定
 }
 ```
 
-Itemの名前を設定
+Itemの名前を設定  
 `ja_jp.json`を編集
 ```json
 {
