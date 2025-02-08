@@ -152,7 +152,40 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="基本設定"><a class="header" href="#基本設定">基本設定</a></h1>
+                        <h1 id="modの説明欄とファイルの基本設定"><a class="header" href="#modの説明欄とファイルの基本設定">MODの説明欄とファイルの基本設定</a></h1>
+<p><code>IJ</code></p>
+<p>プロジェクトの不要ファイルを全て削除
+<code>changelog.txt</code>、<code>CREDITS.txt</code>、<code>LiCENSE.txt</code>、<code>README.txt</code>、<code>src/main/java/com/example</code>(txtファイルとexampleフォルダを削除)
+<code>com</code>に新しいパッケージを作成
+<code>com.Light.CopperTools.main</code>
+<code>main</code>にmainクラスを作成する
+<code>CopperTools</code></p>
+<pre><code class="language-java">package com.Light.CopperTools.main;
+
+import net.minecraftforge.fml.common.Mod;
+
+@Mod("coppertools")
+//@Mod("半角英字のみ")
+
+public class CopperTools {
+    // MOD_IDの定義
+    public static final String MOD_ID = "coppertools";
+
+    public CopperTools(){
+        
+    }
+}
+</code></pre>
+<p><code>resources/META-INF/mods.toml</code>を編集 #行数</p>
+<pre><code class="language-toml">modId="coppertools" #18
+version="1.20.2-1.0" #20
+displayName="CopperTools" #22
+authors="Light" #32
+description='''add cooper tools'''　#42
+[[dependencies.coppertools]] #44
+[[dependencies.coppertools]] #58
+</code></pre>
+<p>ランチャーを起動して情報が登録されているか確認</p>
 
                     </main>
 
