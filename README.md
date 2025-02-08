@@ -5,7 +5,6 @@
 ### 環境
 * Windows11 Home
 * IntelliJ IDEA Community Edition 2024.1
-
 * Minecraft Java Edition 1.20.2
 * Minecraft Forge 1.20.2-48.1.0
 
