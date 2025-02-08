@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>はじめに - mods-code_1.20.x</title>
+        <title>クリエイティブタブの追加 - mods-code_1.20.x</title>
 
 
         <!-- Custom HTML head -->
@@ -152,42 +152,77 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="はじめに"><a class="header" href="#はじめに">はじめに</a></h1>
-<h3 id="必要なもの"><a class="header" href="#必要なもの">必要なもの</a></h3>
-<ul>
-<li>IntelliJ IDEA Community Edition <a href="https://www.jetbrains.com/ja-jp/idea/download/?section=windows">site</a></li>
-<li>JDK <a href="https://adoptium.net/temurin/">site</a></li>
-<li>MDK <a href="https://files.minecraftforge.net/net/minecraftforge/forge/index_1.20.2.html">site</a></li>
-</ul>
-<ol>
-<li>必要なものをすべてダウンロード</li>
-<li>任意の場所に<code>mods</code>フォルダを作成</li>
-<li><code>MDK</code>を展開</li>
-<li><code>JDK</code>のインストーラーを実行</li>
-<li><code>Intellij IDEA</code>のインストーラーを実行</li>
-<li><code>IJ(Intellij IDEA)</code>を開きOPNEから展開したMDKを選択し、プロジェクトを開く</li>
-<li><code>BUILD SUCCESSFUL</code>が出るまで待機</li>
-<li>右のバーの像マークの<code>Gradle-[MDKのバージョン等の名前]-Tasks-forgegradle runs-genIntellijRuns</code>をダブルクリックで実行</li>
-<li><code>BUILD SUCCESSFUL</code>がでたら<code>Gradle</code>のリロード</li>
-<li>終わったら上の実行ボタンのとなりの実行構成の編集</li>
-<li><code>アプリケーション-runClient-ビルドと実行</code>のJDKをインストールしたJDKに変更
-<blockquote>
-<p>Default Pathは<code>C:\Program Files\Eclipse Adoptium</code></p>
-</blockquote>
-</li>
-<li><code>ok-実行</code></li>
-<li>ランチャーの起動後、<code>Mod</code>から<code>Example Mod</code>があることを確認</li>
-<li>確認後終了</li>
-</ol>
+                        <h1 id="クリエイティブタブの追加"><a class="header" href="#クリエイティブタブの追加">クリエイティブタブの追加</a></h1>
+<p>パッケージの追加<code>com.Light.CopperTools.regi.tab</code>
+<code>tab</code>にタブのmainクラスを作成(tabの中身を管理をする)
+<code>CopperToolsMain</code></p>
+<pre><code class="language-java">package com.Light.CopperTools.regi.tab;
+
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+
+public class CopperToolsMain {
+    public static final Item[] items = {
+            Items.WATER_BUCKET,
+            Items.LAVA_BUCKET
+    };
+}
+</code></pre>
+<p><code>tab</code>にタブのmainクラスを作成(tabを登録する)
+<code>CopperToolsTabs</code></p>
+<pre><code class="language-java">package com.Light.CopperTools.regi.tab;
+
+import com.Light.CopperTools.main.CopperTools;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
+
+public class CopperToolsTabs {
+    public static final DeferredRegister&lt;CreativeModeTab&gt; MOD_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CopperTools.MOD_ID);
+
+    public static final RegistryObject&lt;CreativeModeTab&gt; COPPERTOOLS_MAIN = MOD_TABS.register("coppertools_main",
+            ()-&gt;{return CreativeModeTab.builder()
+                    .icon(()-&gt;new ItemStack(Items.WATER_BUCKET))
+                    .title(Component.translatable("itemGroup.coppertools_main"))
+                    .displayItems((param,output)-&gt;{
+                        for (Item item:CopperToolsMain.items){
+                            output.accept(item);
+                        }
+                    })
+                    .build();
+    });
+}
+</code></pre>
+<p><code>resources</code>にディレクトリを作成
+<code>assets/coppertools/lang</code>
+<code>lang</code>にファイルを作成
+<code>ja_jp.json</code></p>
+<pre><code class="language-json">{
+  "itemGroup.coppertools_main" : "CopperTools"
+}
+</code></pre>
+<p><code>CopperTools.java</code>にクリエイティブタブを登録</p>
+<pre><code class="language-java">    public CopperTools(){
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        CopperToolsTabs.MOD_TABS.register(bus);
+    }
+</code></pre>
+<p>ランチャーを起動してクリエイティブタブが登録されているか確認</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-
-                            <a rel="next prefetch" href="chapter_2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                            <a rel="prev" href="chapter_2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
                             </a>
+
 
                         <div style="clear: both"></div>
                     </nav>
@@ -195,10 +230,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-
-                    <a rel="next prefetch" href="chapter_2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                    <a rel="prev" href="chapter_2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
                     </a>
+
             </nav>
 
         </div>

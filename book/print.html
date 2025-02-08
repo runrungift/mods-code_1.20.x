@@ -180,6 +180,69 @@
 <li>ランチャーの起動後、<code>Mod</code>から<code>Example Mod</code>があることを確認</li>
 <li>確認後終了</li>
 </ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="基本設定"><a class="header" href="#基本設定">基本設定</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="クリエイティブタブの追加"><a class="header" href="#クリエイティブタブの追加">クリエイティブタブの追加</a></h1>
+<p>パッケージの追加<code>com.Light.CopperTools.regi.tab</code>
+<code>tab</code>にタブのmainクラスを作成(tabの中身を管理をする)
+<code>CopperToolsMain</code></p>
+<pre><code class="language-java">package com.Light.CopperTools.regi.tab;
+
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+
+public class CopperToolsMain {
+    public static final Item[] items = {
+            Items.WATER_BUCKET,
+            Items.LAVA_BUCKET
+    };
+}
+</code></pre>
+<p><code>tab</code>にタブのmainクラスを作成(tabを登録する)
+<code>CopperToolsTabs</code></p>
+<pre><code class="language-java">package com.Light.CopperTools.regi.tab;
+
+import com.Light.CopperTools.main.CopperTools;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
+
+public class CopperToolsTabs {
+    public static final DeferredRegister&lt;CreativeModeTab&gt; MOD_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CopperTools.MOD_ID);
+
+    public static final RegistryObject&lt;CreativeModeTab&gt; COPPERTOOLS_MAIN = MOD_TABS.register("coppertools_main",
+            ()-&gt;{return CreativeModeTab.builder()
+                    .icon(()-&gt;new ItemStack(Items.WATER_BUCKET))
+                    .title(Component.translatable("itemGroup.coppertools_main"))
+                    .displayItems((param,output)-&gt;{
+                        for (Item item:CopperToolsMain.items){
+                            output.accept(item);
+                        }
+                    })
+                    .build();
+    });
+}
+</code></pre>
+<p><code>resources</code>にディレクトリを作成
+<code>assets/coppertools/lang</code>
+<code>lang</code>にファイルを作成
+<code>ja_jp.json</code></p>
+<pre><code class="language-json">{
+  "itemGroup.coppertools_main" : "CopperTools"
+}
+</code></pre>
+<p><code>CopperTools.java</code>にクリエイティブタブを登録</p>
+<pre><code class="language-java">    public CopperTools(){
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        CopperToolsTabs.MOD_TABS.register(bus);
+    }
+</code></pre>
+<p>ランチャーを起動してクリエイティブタブが登録されているか確認</p>
 
                     </main>
 

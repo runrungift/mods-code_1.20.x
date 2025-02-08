@@ -35,4 +35,4 @@ description='''add cooper tools'''　#42
 [[dependencies.coppertools]] #44
 [[dependencies.coppertools]] #58
 ```
-
+ランチャーを起動して情報が登録されているか確認
