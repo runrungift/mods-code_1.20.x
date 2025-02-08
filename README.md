@@ -1,5 +1,8 @@
 # mods-code_1.20.x
 
+### BOOK
+[BOOK](https://runrungift.github.io/mods-code_1.20.x/book/)
+
 ### 環境
 > minecraft 1.20.x  
 > forge 1.20.2-48.1.0
