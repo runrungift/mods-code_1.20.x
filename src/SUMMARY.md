@@ -1,6 +1,5 @@
 # 目次
 
-* coppertools
 - [はじめに](./chapter_1.md)
 - [基本設定](./chapter_2.md)
 - [クリエイティブモードタブの追加](./chapter_3.md)
