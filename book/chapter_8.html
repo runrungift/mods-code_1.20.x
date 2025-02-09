@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - mods-code_1.20.x</title>
-        <base href="/">
+        <title>MODの書き出し - mods-code_1.20.x</title>
 
 
         <!-- Custom HTML head -->
@@ -153,13 +152,32 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h1 id="modの書き出し"><a class="header" href="#modの書き出し">MODの書き出し</a></h1>
+<p>書き出しファイルの設定<br />
+プロジェクトの<code>build.gradle</code>を編集 //行数</p>
+<pre><code class="language-gradle">version = "1.20.2-48.1.0-1.0"
+group = mod_group_id
+
+base {
+    archivesName = "CopperTools"
+}
+</code></pre>
+<p>基本的に<code>archivesName</code>+<code>version</code>である。<code>mod_version</code>は<code>gradle.properties</code>の45行あたりからの情報が使用される。<br />
+<code>Gradle</code>のリロード。<code>BUILD SUCCESSFUL</code>がでたら<code>Gradle-[MDKのバージョン等の名前]-Tasks-build-build</code>をダブルクリックで実行。<br />
+buildされたファイルは<code>[MDKのバージョン等の名前]\build\libs</code>に保存される。<br />
+保存された<code>jar</code>ファイルを実際に導入し、動作を確認する。</p>
+<h3 id="参考"><a class="header" href="#参考">参考</a></h3>
+<ul>
+<li><a href="https://youtu.be/cWL8cTTRcp0?si=McrbJXxEULOwlYPp">【自作Modの作り方】『MODの書き出し』マイクラ1.20.2 (日本語解説) part.16【Minecraft Modding】</a></li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter_7.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
 
                         <div style="clear: both"></div>
@@ -168,6 +186,9 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter_7.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
             </nav>
 

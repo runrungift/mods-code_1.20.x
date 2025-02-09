@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light sidebar-visible" dir="ltr">
+<html lang="ja" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -180,6 +180,10 @@
 <li>ランチャーの起動後、<code>Mod</code>から<code>Example Mod</code>があることを確認</li>
 <li>確認後終了</li>
 </ol>
+<h3 id="参考"><a class="header" href="#参考">参考</a></h3>
+<ul>
+<li><a href="https://youtu.be/ud6wFsbvpiQ?si=RqLmvVKubyX-ZDS4">【自作Modの作り方】『環境構築』マイクラ1.20.1 (日本語解説) part.1【Minecraft Modding】</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="modの説明欄とファイルの基本設定"><a class="header" href="#modの説明欄とファイルの基本設定">MODの説明欄とファイルの基本設定</a></h1>
 <p>プロジェクトの不要ファイルを全て削除<br />
 <code>changelog.txt</code>、<code>CREDITS.txt</code>、<code>LiCENSE.txt</code>、<code>README.txt</code>、<code>src/main/java/com/example</code>(txtファイルとexampleフォルダを削除)
@@ -208,11 +212,15 @@ public class CopperTools {
 version="1.20.2-1.0" #20
 displayName="CopperTools" #22
 authors="Light" #32
-description='''add cooper tools'''　#42
+description='''add copper tools'''　#42
 [[dependencies.coppertools]] #44
 [[dependencies.coppertools]] #58
 </code></pre>
 <p>ランチャーを起動して情報が登録されているか確認</p>
+<h3 id="参考-1"><a class="header" href="#参考-1">参考</a></h3>
+<ul>
+<li><a href="https://youtu.be/pEG0hbAGayE?si=vq8Pph77qKygCmQh">【自作Modの作り方】『基本設定』マイクラ1.20.1 (日本語解説) part.2【Minecraft Modding】</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="クリエイティブモードタブの追加"><a class="header" href="#クリエイティブモードタブの追加">クリエイティブモードタブの追加</a></h1>
 <p>パッケージの追加<code>com.Light.CopperTools.regi.tab</code><br />
 <code>tab</code>にタブのmainクラスを作成(tabの中身を管理をする)<br />
@@ -275,6 +283,10 @@ public class CopperToolsTabs {
     }
 </code></pre>
 <p>ランチャーを起動してクリエイティブモードタブが登録されているか確認</p>
+<h3 id="参考-2"><a class="header" href="#参考-2">参考</a></h3>
+<ul>
+<li><a href="https://youtu.be/6aAdOeLv5bM?si=-OcJbyqaOJuwij_H">【自作Modの作り方】『クリエイティブタブの追加』マイクラ1.20.1 (日本語解説) part.3【Minecraft Modding】</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="itemの追加"><a class="header" href="#itemの追加">Itemの追加</a></h1>
 <p>パッケージの追加<code>com.Light.CopperTools.item</code><br />
 <code>item</code>にitemのクラスを作成
@@ -358,6 +370,11 @@ public class CopperToolsItems {
 }
 </code></pre>
 <p>ランチャーを起動して確認</p>
+<h3 id="参考-3"><a class="header" href="#参考-3">参考</a></h3>
+<ul>
+<li><a href="https://youtu.be/F0Mf8GX4eGY?si=hNwL5vOyRmOM7od-">【自作Modの作り方】『アイテムの追加①』マイクラ1.20.1 (日本語解説) part.4【Minecraft Modding】</a></li>
+<li><a href="https://youtu.be/QUrFbDntnjU?si=SqzT_WoSnjdmrwvM">【自作Modの作り方】『アイテムの追加②』マイクラ1.20.1 (日本語解説) part.5【Minecraft Modding】</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ピッケルの追加"><a class="header" href="#ピッケルの追加">ピッケルの追加</a></h1>
 <p>パッケージの追加<code>com.Light.CopperTools.item.tool</code><br />
 <code>tool</code>にピッケルのクラスを作成<br />
@@ -413,6 +430,10 @@ public class ToolCopperPickaxe extends PickaxeItem {
 }
 </code></pre>
 <p>ランチャーを起動して確認</p>
+<h3 id="参考-4"><a class="header" href="#参考-4">参考</a></h3>
+<ul>
+<li><a href="https://youtu.be/Vf96HV-EAk8?si=kzdKkeffCN3qAE84">【自作Modの作り方】『ツルハシの追加|ツールの追加②』マイクラ1.20.2 (日本語解説) part.12【Minecraft Modding】</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="装備の追加"><a class="header" href="#装備の追加">装備の追加</a></h1>
 <p>パッケージの追加<code>com.Light.CopperTools.item.armor</code><br />
 <code>armor</code>に装備素材の設定のクラスを作成<br />
@@ -551,7 +572,81 @@ public class ArmorCopperHelmet extends ArmorItem {
 <code>models\item</code><br />
 <code>item</code>に装備の画像を保存<br />
 <code>copper_layer_1.png</code>、<code>copper_layer_2.png</code><br />
+装備の装着音の字幕を整えるために<code>ja_jp.json</code>を編集する。<br />
+<code>resources/assets/minecraft/lang</code>にディレクトリを作成<br />
+<code>lang</code>にファイルを作成<br />
+<code>ja_jp.json</code></p>
+<pre><code class="language-json">{
+  "subtitles.item.armor.equip_chain": "防具が装着される",
+  "subtitles.item.armor.equip_diamond": "防具が装着される",
+  "subtitles.item.armor.equip_gold": "防具が装着される",
+  "subtitles.item.armor.equip_iron": "防具が装着される",
+  "subtitles.item.armor.equip_leather": "防具が装着される",
+  "subtitles.item.armor.equip_netherite": "防具が装着される"
+}
+</code></pre>
+<p>ランチャーを起動して確認</p>
+<h3 id="参考-5"><a class="header" href="#参考-5">参考</a></h3>
+<ul>
+<li><a href="https://youtu.be/1--cnvRJkkY?si=v-ia8nF0gtkGgF9R">【自作Modの作り方】『アーマーの追加①』マイクラ1.20.2 (日本語解説) part.31【Minecraft Modding】</a></li>
+<li><a href="https://youtu.be/rTB3nvH2Qz4?si=jul943ZMV_-Eqliu">【自作Modの作り方】『アーマーの追加②』マイクラ1.20.2 (日本語解説) part.32【Minecraft Modding】</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="レシピの追加"><a class="header" href="#レシピの追加">レシピの追加</a></h1>
+<p><code>resources/assets/coppertools/</code>にディレクトリを作成<br />
+<code>recipes</code>
+<code>recipes</code>にファイルを作成<br />
+<code>copper_pickaxe.json</code></p>
+<pre><code class="language-json">{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "pattern": [
+    "XXX",
+    " # ",
+    " # "
+  ],
+  "result": {
+    "item": "coppertools:copper_pickaxe"
+  },
+  "show_notification": true
+}
+</code></pre>
+<p>各アイテムのレシピを登録する</p>
+<blockquote>
+<p>https://crafting.thedestruc7i0n.ca/<br />
+このサイトを利用したり、既存のアイテムのレシピのファイルの中身を書き換えるなどで楽をする。<br />
 ランチャーを起動して確認</p>
+</blockquote>
+<h3 id="参考-6"><a class="header" href="#参考-6">参考</a></h3>
+<ul>
+<li><a href="https://zenn.dev/boson/books/b83a4a1c0611d0/viewer/102dbc">Item -応用-</a></li>
+<li><a href="https://crafting.thedestruc7i0n.ca/">Crafting</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="modの書き出し"><a class="header" href="#modの書き出し">MODの書き出し</a></h1>
+<p>書き出しファイルの設定<br />
+プロジェクトの<code>build.gradle</code>を編集 //行数</p>
+<pre><code class="language-gradle">version = "1.20.2-48.1.0-1.0"
+group = mod_group_id
+
+base {
+    archivesName = "CopperTools"
+}
+</code></pre>
+<p>基本的に<code>archivesName</code>+<code>version</code>である。<code>mod_version</code>は<code>gradle.properties</code>の45行あたりからの情報が使用される。<br />
+<code>Gradle</code>のリロード。<code>BUILD SUCCESSFUL</code>がでたら<code>Gradle-[MDKのバージョン等の名前]-Tasks-build-build</code>をダブルクリックで実行。<br />
+buildされたファイルは<code>[MDKのバージョン等の名前]\build\libs</code>に保存される。<br />
+保存された<code>jar</code>ファイルを実際に導入し、動作を確認する。</p>
+<h3 id="参考-7"><a class="header" href="#参考-7">参考</a></h3>
+<ul>
+<li><a href="https://youtu.be/cWL8cTTRcp0?si=McrbJXxEULOwlYPp">【自作Modの作り方】『MODの書き出し』マイクラ1.20.2 (日本語解説) part.16【Minecraft Modding】</a></li>
+</ul>
 
                     </main>
 

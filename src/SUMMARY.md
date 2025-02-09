@@ -1,7 +1,5 @@
 # 目次
-- [CopperTools](https://github.com/runrungift/mods-copper_tools)
 
-# CopperTools
 - [はじめに](./chapter_1.md)
 - [基本設定](./chapter_2.md)
 - [クリエイティブモードタブの追加](./chapter_3.md)

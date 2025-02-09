@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light sidebar-visible" dir="ltr">
+<html lang="ja" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>装備の追加(未) - mods-code_1.20.x</title>
+        <title>防具の追加 - mods-code_1.20.x</title>
 
 
         <!-- Custom HTML head -->
@@ -290,7 +290,25 @@ public class ArmorCopperHelmet extends ArmorItem {
 <code>models\item</code><br />
 <code>item</code>に装備の画像を保存<br />
 <code>copper_layer_1.png</code>、<code>copper_layer_2.png</code><br />
-ランチャーを起動して確認</p>
+装備の装着音の字幕を整えるために<code>ja_jp.json</code>を編集する。<br />
+<code>resources/assets/minecraft/lang</code>にディレクトリを作成<br />
+<code>lang</code>にファイルを作成<br />
+<code>ja_jp.json</code></p>
+<pre><code class="language-json">{
+  "subtitles.item.armor.equip_chain": "防具が装着される",
+  "subtitles.item.armor.equip_diamond": "防具が装着される",
+  "subtitles.item.armor.equip_gold": "防具が装着される",
+  "subtitles.item.armor.equip_iron": "防具が装着される",
+  "subtitles.item.armor.equip_leather": "防具が装着される",
+  "subtitles.item.armor.equip_netherite": "防具が装着される"
+}
+</code></pre>
+<p>ランチャーを起動して確認</p>
+<h3 id="参考"><a class="header" href="#参考">参考</a></h3>
+<ul>
+<li><a href="https://youtu.be/1--cnvRJkkY?si=v-ia8nF0gtkGgF9R">【自作Modの作り方】『アーマーの追加①』マイクラ1.20.2 (日本語解説) part.31【Minecraft Modding】</a></li>
+<li><a href="https://youtu.be/rTB3nvH2Qz4?si=jul943ZMV_-Eqliu">【自作Modの作り方】『アーマーの追加②』マイクラ1.20.2 (日本語解説) part.32【Minecraft Modding】</a></li>
+</ul>
 
                     </main>
 
@@ -300,6 +318,9 @@ public class ArmorCopperHelmet extends ArmorItem {
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next prefetch" href="chapter_7.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -311,6 +332,9 @@ public class ArmorCopperHelmet extends ArmorItem {
                         <i class="fa fa-angle-left"></i>
                     </a>
 
+                    <a rel="next prefetch" href="chapter_7.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
