@@ -39,9 +39,9 @@ public class ToolCopperPickaxe extends PickaxeItem {
                     .icon(()->new ItemStack(CopperToolsItems.COPPER_NUGGET.get()))
 ```
 ピッケルのテクスチャーを設定  
-`textures\item`  
+`textures/item`  
 `item`にピッケルの画像を保存  
-`models\item`  
+`models/item`  
 `item`にファイルを作成  
     `copper_pickaxe.json`
 ```json

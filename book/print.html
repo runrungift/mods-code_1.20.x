@@ -155,7 +155,8 @@
                     <main>
                         <h1 id="modのリポジトリ"><a class="header" href="#modのリポジトリ">MODのリポジトリ</a></h1>
 <h3 id="copper-tools"><a class="header" href="#copper-tools">Copper Tools</a></h3>
-<p><a href="https://github.com/runrungift/mods-copper_tools">mods-copper_tools</a></p>
+<p><a href="https://github.com/runrungift/mods-copper_tools">mods-copper_tools</a>
+<a href="">mod download</a></p>
 <h3 id="mod開発ログ"><a class="header" href="#mod開発ログ">MOD開発ログ</a></h3>
 <p><a href="https://runrungift.github.io/mods-code_1.20.x/book/chapter_1.html">mods-code_1.20.x</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="はじめに"><a class="header" href="#はじめに">はじめに</a></h1>
@@ -178,7 +179,7 @@
 <li>終わったら上の実行ボタンのとなりの実行構成の編集</li>
 <li><code>アプリケーション-runClient-ビルドと実行</code>のJDKをインストールしたJDKに変更
 <blockquote>
-<p>Default Pathは<code>C:\Program Files\Eclipse Adoptium</code></p>
+<p>Default Pathは<code>C:/Program Files/Eclipse Adoptium</code></p>
 </blockquote>
 </li>
 <li><code>ok-実行</code></li>
@@ -274,7 +275,7 @@ public class CopperToolsTabs {
 }
 </code></pre>
 <p><code>resources</code>にディレクトリを作成<br />
-<code>assets/coppertools/lang</code>
+<code>assets/coppertools/lang</code><br />
 <code>lang</code>にファイルを作成<br />
 <code>ja_jp.json</code></p>
 <pre><code class="language-json">{
@@ -353,10 +354,10 @@ public class CopperToolsItems {
 <li>ファイルの名前がitemIDと同じであること</li>
 </ul>
 <p><code>resources/assets/coppertools/</code>にディレクトリを作成<br />
-<code>textures\item</code>
+<code>textures/item</code>
 <code>item</code>にアイテムの画像を保存<br />
 <code>resources/assets/coppertools/</code>にディレクトリを作成<br />
-<code>models\item</code>
+<code>models/item</code>
 <code>item</code>にファイルを作成<br />
 <code>copper_nugget.json</code></p>
 <pre><code class="language-json">{
@@ -415,9 +416,9 @@ public class ToolCopperPickaxe extends PickaxeItem {
 <pre><code class="language-java">                    .icon(()-&gt;new ItemStack(CopperToolsItems.COPPER_NUGGET.get()))
 </code></pre>
 <p>ピッケルのテクスチャーを設定<br />
-<code>textures\item</code><br />
+<code>textures/item</code><br />
 <code>item</code>にピッケルの画像を保存<br />
-<code>models\item</code><br />
+<code>models/item</code><br />
 <code>item</code>にファイルを作成<br />
 <code>copper_pickaxe.json</code></p>
 <pre><code class="language-json">{
@@ -574,7 +575,7 @@ public class ArmorCopperHelmet extends ArmorItem {
 <p>チェストプレート、レギンス、ブーツも同じように設定する。<br />
 アイテムとして登録、クリエイティブモードタブにも登録。アイテムの画像、アイテム名も同じように設定。<br />
 <code>resources/assets/coppertools/textures</code>にディレクトリを作成<br />
-<code>models\item</code><br />
+<code>models/item</code><br />
 <code>item</code>に装備の画像を保存<br />
 <code>copper_layer_1.png</code>、<code>copper_layer_2.png</code><br />
 装備の装着音の字幕を整えるために<code>ja_jp.json</code>を編集する。<br />
@@ -646,7 +647,7 @@ base {
 </code></pre>
 <p>基本的に<code>archivesName</code>+<code>version</code>である。<code>mod_version</code>は<code>gradle.properties</code>の45行あたりからの情報が使用される。<br />
 <code>Gradle</code>のリロード。<code>BUILD SUCCESSFUL</code>がでたら<code>Gradle-[MDKのバージョン等の名前]-Tasks-build-build</code>をダブルクリックで実行。<br />
-buildされたファイルは<code>[MDKのバージョン等の名前]\build\libs</code>に保存される。<br />
+buildされたファイルは<code>[MDKのバージョン等の名前]/build/libs</code>に保存される。<br />
 保存された<code>jar</code>ファイルを実際に導入し、動作を確認する。</p>
 <h3 id="参考-7"><a class="header" href="#参考-7">参考</a></h3>
 <ul>

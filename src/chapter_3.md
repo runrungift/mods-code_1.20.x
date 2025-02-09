@@ -50,7 +50,7 @@ public class CopperToolsTabs {
 }
 ```
 `resources`にディレクトリを作成  
-    `assets/coppertools/lang`
+    `assets/coppertools/lang`  
 `lang`にファイルを作成  
     `ja_jp.json`
 ```json

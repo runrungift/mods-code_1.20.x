@@ -137,7 +137,7 @@ public class ArmorCopperHelmet extends ArmorItem {
 チェストプレート、レギンス、ブーツも同じように設定する。  
 アイテムとして登録、クリエイティブモードタブにも登録。アイテムの画像、アイテム名も同じように設定。  
 `resources/assets/coppertools/textures`にディレクトリを作成  
-    `models\item`  
+    `models/item`  
 `item`に装備の画像を保存  
     `copper_layer_1.png`、`copper_layer_2.png`  
 装備の装着音の字幕を整えるために`ja_jp.json`を編集する。  

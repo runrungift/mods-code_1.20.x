@@ -65,10 +65,10 @@ Itemのテクスチャーを設定
 * ファイルの名前がitemIDと同じであること
 
 `resources/assets/coppertools/`にディレクトリを作成  
-    `textures\item`
+    `textures/item`
 `item`にアイテムの画像を保存  
 `resources/assets/coppertools/`にディレクトリを作成  
-    `models\item`
+    `models/item`
 `item`にファイルを作成  
     `copper_nugget.json`
 ```json

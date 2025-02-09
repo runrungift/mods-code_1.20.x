@@ -12,7 +12,7 @@ base {
 ```
 基本的に`archivesName`+`version`である。`mod_version`は`gradle.properties`の45行あたりからの情報が使用される。  
 `Gradle`のリロード。`BUILD SUCCESSFUL`がでたら`Gradle-[MDKのバージョン等の名前]-Tasks-build-build`をダブルクリックで実行。  
-buildされたファイルは`[MDKのバージョン等の名前]\build\libs`に保存される。  
+buildされたファイルは`[MDKのバージョン等の名前]/build/libs`に保存される。  
 保存された`jar`ファイルを実際に導入し、動作を確認する。
 
 ### 参考

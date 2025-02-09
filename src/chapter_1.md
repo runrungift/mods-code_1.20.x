@@ -15,7 +15,7 @@
 9. `BUILD SUCCESSFUL`がでたら`Gradle`のリロード
 10. 終わったら上の実行ボタンのとなりの実行構成の編集
 11. `アプリケーション-runClient-ビルドと実行`のJDKをインストールしたJDKに変更
-    > Default Pathは`C:\Program Files\Eclipse Adoptium`
+    > Default Pathは`C:/Program Files/Eclipse Adoptium`
 12. `ok-実行`
 13. ランチャーの起動後、`Mod`から`Example Mod`があることを確認
 14. 確認後終了  
