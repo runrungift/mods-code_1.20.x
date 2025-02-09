@@ -1,5 +1,7 @@
 # 目次
+- [mods repository](./chapter_0.md)
 
+# CopperTools
 - [はじめに](./chapter_1.md)
 - [基本設定](./chapter_2.md)
 - [クリエイティブモードタブの追加](./chapter_3.md)
@@ -8,3 +10,4 @@
 - [防具の追加](./chapter_6.md)
 - [レシピの追加](./chapter_7.md)
 - [MODの書き出し](./chapter_8.md)
+  
