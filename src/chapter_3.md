@@ -65,4 +65,7 @@ public class CopperToolsTabs {
         CopperToolsTabs.MOD_TABS.register(bus);
     }
 ```
-ランチャーを起動してクリエイティブモードタブが登録されているか確認
+ランチャーを起動してクリエイティブモードタブが登録されているか確認  
+
+### 参考
+* [【自作Modの作り方】『クリエイティブタブの追加』マイクラ1.20.1 (日本語解説) part.3【Minecraft Modding】](https://youtu.be/6aAdOeLv5bM?si=-OcJbyqaOJuwij_H)

@@ -140,4 +140,22 @@ public class ArmorCopperHelmet extends ArmorItem {
     `models\item`  
 `item`に装備の画像を保存  
     `copper_layer_1.png`、`copper_layer_2.png`  
-ランチャーを起動して確認 
+装備の装着音の字幕を整えるために`ja_jp.json`を編集する。  
+`resources/assets/minecraft/lang`にディレクトリを作成  
+`lang`にファイルを作成  
+    `ja_jp.json`  
+```json
+{
+  "subtitles.item.armor.equip_chain": "防具が装着される",
+  "subtitles.item.armor.equip_diamond": "防具が装着される",
+  "subtitles.item.armor.equip_gold": "防具が装着される",
+  "subtitles.item.armor.equip_iron": "防具が装着される",
+  "subtitles.item.armor.equip_leather": "防具が装着される",
+  "subtitles.item.armor.equip_netherite": "防具が装着される"
+}
+```
+ランチャーを起動して確認  
+
+### 参考
+* [【自作Modの作り方】『アーマーの追加①』マイクラ1.20.2 (日本語解説) part.31【Minecraft Modding】](https://youtu.be/1--cnvRJkkY?si=v-ia8nF0gtkGgF9R)
+* [【自作Modの作り方】『アーマーの追加②』マイクラ1.20.2 (日本語解説) part.32【Minecraft Modding】](https://youtu.be/rTB3nvH2Qz4?si=jul943ZMV_-Eqliu)

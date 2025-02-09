@@ -18,4 +18,7 @@
     > Default Pathは`C:\Program Files\Eclipse Adoptium`
 12. `ok-実行`
 13. ランチャーの起動後、`Mod`から`Example Mod`があることを確認
-14. 確認後終了
+14. 確認後終了  
+
+### 参考
+* [【自作Modの作り方】『環境構築』マイクラ1.20.1 (日本語解説) part.1【Minecraft Modding】](https://youtu.be/ud6wFsbvpiQ?si=RqLmvVKubyX-ZDS4)

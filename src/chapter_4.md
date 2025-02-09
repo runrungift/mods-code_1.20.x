@@ -89,4 +89,8 @@ Itemの名前を設定
   "item.coppertools.copper_nugget" : "銅塊"
 }
 ```
-ランチャーを起動して確認 
+ランチャーを起動して確認  
+
+### 参考
+* [【自作Modの作り方】『アイテムの追加①』マイクラ1.20.1 (日本語解説) part.4【Minecraft Modding】](https://youtu.be/F0Mf8GX4eGY?si=hNwL5vOyRmOM7od-)
+* [【自作Modの作り方】『アイテムの追加②』マイクラ1.20.1 (日本語解説) part.5【Minecraft Modding】](https://youtu.be/QUrFbDntnjU?si=SqzT_WoSnjdmrwvM)

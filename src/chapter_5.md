@@ -61,3 +61,6 @@ Itemの名前を設定
 }
 ```
 ランチャーを起動して確認  
+
+### 参考
+* [【自作Modの作り方】『ツルハシの追加|ツールの追加②』マイクラ1.20.2 (日本語解説) part.12【Minecraft Modding】](https://youtu.be/Vf96HV-EAk8?si=kzdKkeffCN3qAE84)

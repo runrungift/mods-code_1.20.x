@@ -29,8 +29,11 @@ modId="coppertools" #18
 version="1.20.2-1.0" #20
 displayName="CopperTools" #22
 authors="Light" #32
-description='''add cooper tools'''　#42
+description='''add copper tools'''　#42
 [[dependencies.coppertools]] #44
 [[dependencies.coppertools]] #58
 ```
-ランチャーを起動して情報が登録されているか確認
+ランチャーを起動して情報が登録されているか確認  
+
+### 参考
+* [【自作Modの作り方】『基本設定』マイクラ1.20.1 (日本語解説) part.2【Minecraft Modding】](https://youtu.be/pEG0hbAGayE?si=vq8Pph77qKygCmQh)
