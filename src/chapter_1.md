@@ -1,5 +1,4 @@
 # はじめに
-
 ### 必要なもの
 * IntelliJ IDEA Community Edition [site](https://www.jetbrains.com/ja-jp/idea/download/?section=windows)
 * JDK [site](https://adoptium.net/temurin/)
