@@ -226,7 +226,8 @@ description='''add copper tools'''　#42
 [[dependencies.coppertools]] #44
 [[dependencies.coppertools]] #58
 </code></pre>
-<p>ランチャーを起動して情報が登録されているか確認</p>
+<p><code>${}</code>は<code>gradle.properties</code>から読み込まれる。<br />
+ランチャーを起動して情報が登録されているか確認</p>
 <h3 id="参考-1"><a class="header" href="#参考-1">参考</a></h3>
 <ul>
 <li><a href="https://youtu.be/pEG0hbAGayE?si=vq8Pph77qKygCmQh">【自作Modの作り方】『基本設定』マイクラ1.20.1 (日本語解説) part.2【Minecraft Modding】</a></li>
@@ -593,6 +594,17 @@ public class ArmorCopperHelmet extends ArmorItem {
   "subtitles.item.armor.equip_iron": "防具が装着される",
   "subtitles.item.armor.equip_leather": "防具が装着される",
   "subtitles.item.armor.equip_netherite": "防具が装着される"
+}
+</code></pre>
+<p>防具の装飾を可能にするために防具をtagに追加する。<br />
+<code>resources/data/minecraft/tags/items/trimmable_armor.json</code>を作成。</p>
+<pre><code class="language-json">{
+  "values": [
+    "coppertools:copper_helmet",
+    "coppertools:copper_chestplate",
+    "coppertools:copper_leggings",
+    "coppertools:copper_boots"
+  ]
 }
 </code></pre>
 <p>ランチャーを起動して確認</p>

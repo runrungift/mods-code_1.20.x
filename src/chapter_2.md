@@ -33,6 +33,7 @@ description='''add copper tools'''　#42
 [[dependencies.coppertools]] #44
 [[dependencies.coppertools]] #58
 ```
+`${}`は`gradle.properties`から読み込まれる。  
 ランチャーを起動して情報が登録されているか確認  
 
 ### 参考

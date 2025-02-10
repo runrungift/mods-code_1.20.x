@@ -154,6 +154,18 @@ public class ArmorCopperHelmet extends ArmorItem {
   "subtitles.item.armor.equip_netherite": "防具が装着される"
 }
 ```
+防具の装飾を可能にするために防具をtagに追加する。  
+`resources/data/minecraft/tags/items/trimmable_armor.json`を作成。  
+```json
+{
+  "values": [
+    "coppertools:copper_helmet",
+    "coppertools:copper_chestplate",
+    "coppertools:copper_leggings",
+    "coppertools:copper_boots"
+  ]
+}
+```
 ランチャーを起動して確認  
 
 ### 参考
