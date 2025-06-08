@@ -6,6 +6,7 @@
     `com.Light.CopperTools.main`
 `main`にmainクラスを作成する  
     `CopperTools`
+
 ```java
 package com.Light.CopperTools.main;
 
@@ -23,7 +24,9 @@ public class CopperTools {
     }
 }
 ```
+
 `resources/META-INF/mods.toml`を編集 #行数
+
 ```toml
 modId="coppertools" #18
 version="1.20.2-1.0" #20
@@ -33,8 +36,10 @@ description='''add copper tools'''　#42
 [[dependencies.coppertools]] #44
 [[dependencies.coppertools]] #58
 ```
+
 `${}`は`gradle.properties`から読み込まれる。  
 ランチャーを起動して情報が登録されているか確認  
 
-### 参考
-* [【自作Modの作り方】『基本設定』マイクラ1.20.1 (日本語解説) part.2【Minecraft Modding】](https://youtu.be/pEG0hbAGayE?si=vq8Pph77qKygCmQh)
+## 参考
+
+- [【自作Modの作り方】『基本設定』マイクラ1.20.1 (日本語解説) part.2【Minecraft Modding】](https://youtu.be/pEG0hbAGayE?si=vq8Pph77qKygCmQh)

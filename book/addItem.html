@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>基本設定 - mods-code_1.20.x</title>
+        <title>Itemの追加 - mods-code_1.20.x</title>
 
 
         <!-- Custom HTML head -->
@@ -24,17 +24,18 @@
         <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
 
-        <!-- Provide site root to javascript -->
+        <!-- Provide site root and default themes to javascript -->
         <script>
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc.js"></script>
@@ -44,8 +45,8 @@
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -59,7 +60,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            var theme;
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             const html = document.documentElement;
@@ -72,8 +74,8 @@
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var sidebar = null;
-            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -109,6 +111,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
@@ -152,54 +155,104 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="modの説明欄とファイルの基本設定"><a class="header" href="#modの説明欄とファイルの基本設定">MODの説明欄とファイルの基本設定</a></h1>
-<p>プロジェクトの不要ファイルを全て削除<br />
-<code>changelog.txt</code>、<code>CREDITS.txt</code>、<code>LiCENSE.txt</code>、<code>README.txt</code>、<code>src/main/java/com/example</code>(txtファイルとexampleフォルダを削除)
-<code>com</code>に新しいパッケージを作成<br />
-<code>com.Light.CopperTools.main</code>
-<code>main</code>にmainクラスを作成する<br />
-<code>CopperTools</code></p>
-<pre><code class="language-java">package com.Light.CopperTools.main;
+                        <h1 id="itemの追加"><a class="header" href="#itemの追加">Itemの追加</a></h1>
+<p>パッケージの追加<code>com.Light.CopperTools.item</code><br />
+<code>item</code>にitemのクラスを作成
+<code>ItemCopperNugget</code></p>
+<pre><code class="language-java">package com.Light.CopperTools.item;
 
-import net.minecraftforge.fml.common.Mod;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 
-@Mod("coppertools")
-//@Mod("半角英字のみ")
-
-public class CopperTools {
-    // MOD_IDの定義
-    public static final String MOD_ID = "coppertools";
-
-    public CopperTools(){
-        
+public class ItemCopperNugget extends Item {
+    public ItemCopperNugget() {
+        super(new Properties()
+                .stacksTo(64)
+                .rarity(Rarity.COMMON)
+        );
     }
 }
 </code></pre>
-<p><code>resources/META-INF/mods.toml</code>を編集 #行数</p>
-<pre><code class="language-toml">modId="coppertools" #18
-version="1.20.2-1.0" #20
-displayName="CopperTools" #22
-authors="Light" #32
-description='''add copper tools'''　#42
-[[dependencies.coppertools]] #44
-[[dependencies.coppertools]] #58
+<p><code>regi</code>にitemを登録するクラスを作成する<br />
+<code>CopperToolsItems</code></p>
+<pre><code class="language-java">package com.Light.CopperTools.regi;
+
+import com.Light.CopperTools.item.ItemCopperNugget;
+import com.Light.CopperTools.main.CopperTools;
+import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+
+public class CopperToolsItems {
+    public static final DeferredRegister&lt;Item&gt; ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, CopperTools.MOD_ID);
+    public static final RegistryObject&lt;Item&gt; COPPER_NUGGET = ITEMS.register("copper_nugget", ItemCopperNugget::new);
+}
 </code></pre>
-<p><code>${}</code>は<code>gradle.properties</code>から読み込まれる。<br />
-ランチャーを起動して情報が登録されているか確認</p>
-<h3 id="参考"><a class="header" href="#参考">参考</a></h3>
+<p><code>CopperTools.java</code>にItemを登録</p>
+<pre><code class="language-java">    public CopperTools(){
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        CopperToolsItems.ITEMS.register(bus);
+        CopperToolsTabs.MOD_TABS.register(bus);
+    }
+</code></pre>
+<p>Itemをクリエイティブモードタブに追加<br />
+<code>CopperToolsMain.java</code></p>
+<pre><code class="language-java">    public static final Item[] items = {
+            CopperToolsItems.COPPER_NUGGET.get()
+    };
+</code></pre>
+<p>クリエイティブモードタブのアイコンを変更<br />
+<code>CopperToolsTabs.java</code></p>
+<pre><code class="language-java">                    .icon(()-&gt;new ItemStack(CopperToolsItems.COPPER_NUGGET.get()))
+</code></pre>
+<p>ランチャーを起動してクリエイティブモードタブが登録されているか確認</p>
+<p>Itemのテクスチャーを設定<br />
+注意事項</p>
 <ul>
-<li><a href="https://youtu.be/pEG0hbAGayE?si=vq8Pph77qKygCmQh">【自作Modの作り方】『基本設定』マイクラ1.20.1 (日本語解説) part.2【Minecraft Modding】</a></li>
+<li>16の倍数の正方形(16px*16pxなど)</li>
+<li>png形式(PNGファイル)</li>
+<li>余白がアルファチャンネルになっていること</li>
+<li>ファイルの名前がitemIDと同じであること</li>
+</ul>
+<p><code>resources/assets/coppertools/</code>にディレクトリを作成<br />
+<code>textures/item</code>
+<code>item</code>にアイテムの画像を保存<br />
+<code>resources/assets/coppertools/</code>にディレクトリを作成<br />
+<code>models/item</code>
+<code>item</code>にファイルを作成<br />
+<code>copper_nugget.json</code></p>
+<pre><code class="language-json">{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "coppertools:item/copper_nugget"
+  }
+}
+</code></pre>
+<p>Itemの名前を設定<br />
+<code>ja_jp.json</code>を編集</p>
+<pre><code class="language-json">{
+  "itemGroup.coppertools_main" : "CopperTools",
+
+  "item.coppertools.copper_nugget" : "銅塊"
+}
+</code></pre>
+<p>ランチャーを起動して確認</p>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
+<ul>
+<li><a href="https://youtu.be/F0Mf8GX4eGY?si=hNwL5vOyRmOM7od-">【自作Modの作り方】『アイテムの追加①』マイクラ1.20.1 (日本語解説) part.4【Minecraft Modding】</a></li>
+<li><a href="https://youtu.be/QUrFbDntnjU?si=SqzT_WoSnjdmrwvM">【自作Modの作り方】『アイテムの追加②』マイクラ1.20.1 (日本語解説) part.5【Minecraft Modding】</a></li>
 </ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="chapter_1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="creativeModeTab.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="chapter_3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="addPickaxe.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -209,17 +262,33 @@ description='''add copper tools'''　#42
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="chapter_1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="creativeModeTab.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="chapter_3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="addPickaxe.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

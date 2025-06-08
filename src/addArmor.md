@@ -3,6 +3,7 @@
 パッケージの追加`com.Light.CopperTools.item.armor`  
 `armor`に装備素材の設定のクラスを作成  
     `ModArmorMaterial`
+
 ```java
 package com.Light.CopperTools.item.armor;
 
@@ -87,9 +88,11 @@ public class ModArmorMaterial implements ArmorMaterial {
     }
 }
 ```
+
 `ArmorMaterial`を登録する  
 `armor`に登録するクラスを作成  
     `CopperArmorMaterials`
+
 ```java
 package com.Light.CopperTools.item.armor;
 
@@ -121,8 +124,10 @@ public class CopperArmorMaterials {
             );
 }
 ```
+
 `armor`にhelmetのクラスを作成
     `ArmorCopperHelmet`
+
 ```java
 package com.Light.CopperTools.item.armor;
 
@@ -134,6 +139,7 @@ public class ArmorCopperHelmet extends ArmorItem {
     }
 }
 ```
+
 チェストプレート、レギンス、ブーツも同じように設定する。  
 アイテムとして登録、クリエイティブモードタブにも登録。アイテムの画像、アイテム名も同じように設定。  
 `resources/assets/coppertools/textures`にディレクトリを作成  
@@ -144,6 +150,7 @@ public class ArmorCopperHelmet extends ArmorItem {
 `resources/assets/minecraft/lang`にディレクトリを作成  
 `lang`にファイルを作成  
     `ja_jp.json`  
+
 ```json
 {
   "subtitles.item.armor.equip_chain": "防具が装着される",
@@ -154,8 +161,10 @@ public class ArmorCopperHelmet extends ArmorItem {
   "subtitles.item.armor.equip_netherite": "防具が装着される"
 }
 ```
+
 防具の装飾を可能にするために防具をtagに追加する。  
 `resources/data/minecraft/tags/items/trimmable_armor.json`を作成。  
+
 ```json
 {
   "values": [
@@ -166,8 +175,10 @@ public class ArmorCopperHelmet extends ArmorItem {
   ]
 }
 ```
+
 ランチャーを起動して確認  
 
-### 参考
-* [【自作Modの作り方】『アーマーの追加①』マイクラ1.20.2 (日本語解説) part.31【Minecraft Modding】](https://youtu.be/1--cnvRJkkY?si=v-ia8nF0gtkGgF9R)
-* [【自作Modの作り方】『アーマーの追加②』マイクラ1.20.2 (日本語解説) part.32【Minecraft Modding】](https://youtu.be/rTB3nvH2Qz4?si=jul943ZMV_-Eqliu)
+## 参考
+
+- [【自作Modの作り方】『アーマーの追加①』マイクラ1.20.2 (日本語解説) part.31【Minecraft Modding】](https://youtu.be/1--cnvRJkkY?si=v-ia8nF0gtkGgF9R)
+- [【自作Modの作り方】『アーマーの追加②』マイクラ1.20.2 (日本語解説) part.32【Minecraft Modding】](https://youtu.be/rTB3nvH2Qz4?si=jul943ZMV_-Eqliu)

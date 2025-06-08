@@ -1,8 +1,10 @@
 # はじめに
-### 必要なもの
-* IntelliJ IDEA Community Edition [site](https://www.jetbrains.com/ja-jp/idea/download/?section=windows)
-* JDK [site](https://adoptium.net/temurin/)
-* MDK [site](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.20.2.html)
+
+## 必要なもの
+
+- IntelliJ IDEA Community Edition [site](https://www.jetbrains.com/ja-jp/idea/download/?section=windows)
+- JDK [site](https://adoptium.net/temurin/)
+- MDK [site](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.20.2.html)
 
 1. 必要なものをすべてダウンロード
 2. 任意の場所に`mods`フォルダを作成
@@ -21,4 +23,5 @@
 14. 確認後終了  
 
 ### 参考
-* [【自作Modの作り方】『環境構築』マイクラ1.20.1 (日本語解説) part.1【Minecraft Modding】](https://youtu.be/ud6wFsbvpiQ?si=RqLmvVKubyX-ZDS4)
+
+- [【自作Modの作り方】『環境構築』マイクラ1.20.1 (日本語解説) part.1【Minecraft Modding】](https://youtu.be/ud6wFsbvpiQ?si=RqLmvVKubyX-ZDS4)

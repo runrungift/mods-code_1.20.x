@@ -3,6 +3,7 @@
 パッケージの追加`com.Light.CopperTools.regi.tab`  
 `tab`にタブのmainクラスを作成(tabの中身を管理をする)  
     `CopperToolsMain`
+
 ```java
 package com.Light.CopperTools.regi.tab;
 
@@ -20,6 +21,7 @@ public class CopperToolsMain {
 
 `tab`にタブのmainクラスを作成(tabを登録する)  
     `CopperToolsTabs`
+
 ```java
 package com.Light.CopperTools.regi.tab;
 
@@ -49,23 +51,29 @@ public class CopperToolsTabs {
     });
 }
 ```
+
 `resources`にディレクトリを作成  
     `assets/coppertools/lang`  
 `lang`にファイルを作成  
     `ja_jp.json`
+
 ```json
 {
   "itemGroup.coppertools_main" : "CopperTools"
 }
 ```
+
 `CopperTools.java`にクリエイティブモードタブを登録  
+
 ```java
     public CopperTools(){
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         CopperToolsTabs.MOD_TABS.register(bus);
     }
 ```
+
 ランチャーを起動してクリエイティブモードタブが登録されているか確認  
 
-### 参考
-* [【自作Modの作り方】『クリエイティブタブの追加』マイクラ1.20.1 (日本語解説) part.3【Minecraft Modding】](https://youtu.be/6aAdOeLv5bM?si=-OcJbyqaOJuwij_H)
+## 参考
+
+- [【自作Modの作り方】『クリエイティブタブの追加』マイクラ1.20.1 (日本語解説) part.3【Minecraft Modding】](https://youtu.be/6aAdOeLv5bM?si=-OcJbyqaOJuwij_H)

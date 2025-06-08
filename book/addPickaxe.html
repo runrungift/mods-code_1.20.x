@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>レシピの追加 - mods-code_1.20.x</title>
+        <title>ピッケルの追加 - mods-code_1.20.x</title>
 
 
         <!-- Custom HTML head -->
@@ -24,17 +24,18 @@
         <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
 
-        <!-- Provide site root to javascript -->
+        <!-- Provide site root and default themes to javascript -->
         <script>
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc.js"></script>
@@ -44,8 +45,8 @@
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -59,7 +60,8 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            var theme;
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             const html = document.documentElement;
@@ -72,8 +74,8 @@
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var sidebar = null;
-            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -109,6 +111,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
@@ -152,54 +155,75 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="レシピの追加"><a class="header" href="#レシピの追加">レシピの追加</a></h1>
-<p><code>resources/assets/coppertools/</code>にディレクトリを作成<br />
-<code>recipes</code>
-<code>recipes</code>にファイルを作成<br />
-<code>copper_pickaxe.json</code></p>
-<pre><code class="language-json">{
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "key": {
-    "#": {
-      "item": "minecraft:stick"
-    },
-    "X": {
-      "item": "minecraft:copper_ingot"
+                        <h1 id="ピッケルの追加"><a class="header" href="#ピッケルの追加">ピッケルの追加</a></h1>
+<p>パッケージの追加<code>com.Light.CopperTools.item.tool</code><br />
+<code>tool</code>にピッケルのクラスを作成<br />
+<code>ToolCopperPickaxe</code></p>
+<pre><code class="language-java">package com.Light.CopperTools.item.tool;
+
+import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.Tiers;
+
+public class ToolCopperPickaxe extends PickaxeItem {
+    public ToolCopperPickaxe() {
+        super(Tiers.IRON,1,-2.8F,new Properties().durability(200));
     }
-  },
-  "pattern": [
-    "XXX",
-    " # ",
-    " # "
-  ],
-  "result": {
-    "item": "coppertools:copper_pickaxe"
-  },
-  "show_notification": true
 }
 </code></pre>
-<p>各アイテムのレシピを登録する</p>
-<blockquote>
-<p>https://crafting.thedestruc7i0n.ca/<br />
-このサイトを利用したり、既存のアイテムのレシピのファイルの中身を書き換えるなどで楽をする。<br />
-ランチャーを起動して確認</p>
-</blockquote>
-<h3 id="参考"><a class="header" href="#参考">参考</a></h3>
+<p><code>CopperToolsItems.java</code>にピッケルを登録</p>
+<pre><code class="language-java">    public CopperTools(){
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        CopperToolsItems.ITEMS.register(bus);
+        CopperToolsTabs.MOD_TABS.register(bus);
+    }
+</code></pre>
+<p>ピッケルをクリエイティブモードタブに追加<br />
+<code>CopperToolsMain.java</code></p>
+<pre><code class="language-java">    public static final Item[] items = {
+            CopperToolsItems.COPPER_NUGGET.get(),
+            CopperToolsItems.COPPER_PICKAXE.get()
+    };
+</code></pre>
+<p>クリエイティブモードタブのアイコンを変更<br />
+<code>CopperToolsTabs.java</code></p>
+<pre><code class="language-java">                    .icon(()-&gt;new ItemStack(CopperToolsItems.COPPER_NUGGET.get()))
+</code></pre>
+<p>ピッケルのテクスチャーを設定<br />
+<code>textures/item</code><br />
+<code>item</code>にピッケルの画像を保存<br />
+<code>models/item</code><br />
+<code>item</code>にファイルを作成<br />
+<code>copper_pickaxe.json</code></p>
+<pre><code class="language-json">{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "coppertools:item/copper_pickaxe"
+  }
+}
+</code></pre>
+<p>Itemの名前を設定<br />
+<code>ja_jp.json</code>を編集</p>
+<pre><code class="language-json">{
+  "item.coppertools.copper_nugget" : "銅塊",
+  "item.coppertools.copper_pickaxe" : "銅のツルハシ"
+}
+</code></pre>
+<p>ランチャーを起動して確認</p>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
 <ul>
-<li><a href="https://zenn.dev/boson/books/b83a4a1c0611d0/viewer/102dbc">Item -応用-</a></li>
-<li><a href="https://crafting.thedestruc7i0n.ca/">Crafting</a></li>
+<li><a href="https://youtu.be/Vf96HV-EAk8?si=kzdKkeffCN3qAE84">【自作Modの作り方】『ツルハシの追加|ツールの追加②』マイクラ1.20.2 (日本語解説) part.12【Minecraft Modding】</a></li>
 </ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="chapter_6.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="addItem.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="chapter_8.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="addArmor.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -209,17 +233,33 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="chapter_6.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="addItem.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="chapter_8.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="addArmor.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
